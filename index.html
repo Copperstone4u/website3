@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Warning</title>
+  <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      background: black;
+      overflow: hidden;
+      cursor: default;
+    }
+
+    #container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      user-select: none;
+    }
+
+    #warning {
+      font-size: 60px;
+      margin-bottom: 20px;
+    }
+
+    #text {
+      font-size: 22px;
+      margin-bottom: 25px;
+    }
+
+    button {
+      font-size: 18px;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      background: white;
+      color: black;
+    }
+
+    button:hover {
+      background: #ddd;
+    }
+  </style>
+</head>
+<body>
+
+<div id="container">
+  <div id="warning">⚠️</div>
+  <div id="text">Click reload to continue</div>
+  <button onclick="location.reload()">Reload</button>
+</div>
+
+<audio id="sound" src="sound.mp3" loop></audio>
+
+<script>
+  const sound = document.getElementById("sound");
+
+  // Play sound after reload + user interaction (browser requirement)
+  document.addEventListener("click", () => {
+    sound.play();
+  }, { once: true });
+</script>
+
+</body>
+</html>
